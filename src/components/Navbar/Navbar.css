@@ -1,0 +1,133 @@
+/* Navbar container */
+
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;600;700&display=swap');
+
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  background: transparent;
+  padding: 0 32px;
+  min-height: 60px;
+  
+}
+
+/* Left section: logo + nav links */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-logo img {
+  width: 110px;
+  height: auto;
+  margin-right: 16px;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navbar-item:hover {
+  color: #e50914;
+}
+
+/* Right section: icons, profile, etc. */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-icon {
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navbar-icon:hover {
+  color: #e50914;
+}
+
+.navbar-user {
+  width: 36px;
+  height: 36px;
+  border-radius: 40px;
+  object-fit: cover;
+  color: transparent;
+ 
+}
+
+.navbar-children {
+  color: #fff;
+  font-size: 0.95rem;
+  margin: 0 8px;
+}
+
+.navbar-user-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar-arrow {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-left: 2px;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.navbar-arrow:hover {
+  color: #e50914;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: #181818;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  min-width: 120px;
+  z-index: 100;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.navbar-dropdown-item {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar-dropdown-item:hover {
+  background: #e50914;
+  color: #fff;
+}

@@ -1,0 +1,51 @@
+.titlecards {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  color: white;
+}
+
+.titlecards h2 {
+  margin-bottom: 8px;
+}
+
+.card-list {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 8px;
+
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE & Edge */
+}
+
+.card-list::-webkit-scrollbar {
+  display: none;                 /* Chrome, Safari */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card img {
+  width: 160px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.card p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
