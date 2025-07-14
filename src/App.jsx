@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Home from './pages/Home/Home.jsx';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Login from './pages/Login/Login.jsx';
@@ -10,13 +10,16 @@ import { onAuthStateChanged } from 'firebase/auth';
 const App = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("User is logged in:", user);
         setUser(user);
-        navigate('/');
+        if (location.pathname === '/login') {
+          navigate('/');
+        }
       } else {
         console.log("User logged out");
         setUser(null);
@@ -25,7 +28,7 @@ const App = () => {
     });
 
     return () => unsubscribe();
-  }, [navigate]);
+  }, [navigate, location.pathname]);
 
   return (
     <div>
