@@ -38,7 +38,7 @@ const Footer = () => {
 
 
       <p className='copyright-text'>
-        © 2023 Netflix, Inc. All rights reserved.
+        © 2023 TrailerPark, Inc. All rights reserved.
         </p>
       </div>
   )

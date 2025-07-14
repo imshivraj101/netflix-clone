@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './TitleCards.css';
 import cards_data from '../../assets/cards/Cards_data.js'; // fallback data
+import { Link } from 'react-router-dom';
 
 const TitleCards = ({ title, category }) => {
   const cardsRef = useRef();
@@ -51,20 +52,26 @@ const TitleCards = ({ title, category }) => {
 
   return (
     <div className='titlecards'>
-      <h2>{title || "Popular on Netflix"}</h2>
+      <h2>{title || "Popular on TrailerPark"}</h2>
       <div className='card-list' ref={cardsRef}>
         {(movies.length > 0 ? movies : cards_data).map((card, index) => (
-          <div className='card' key={index}>
-            <img
-              src={
-                card.image
-                  ? card.image
-                  : `https://image.tmdb.org/t/p/w500${card.poster_path}`
-              }
-              alt={card.title || card.name || 'Movie Poster'}
-            />
-            <p>{card.original_title || card.title || card.name}</p>
-          </div>
+          <Link
+            to={`/player/${card.id}`}
+            key={index}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className='card'>
+              <img
+                src={
+                  card.image
+                    ? card.image
+                    : `https://image.tmdb.org/t/p/w500${card.poster_path}`
+                }
+                alt={card.title || card.name || 'Movie Poster'}
+              />
+              <p>{card.original_title || card.title || card.name}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

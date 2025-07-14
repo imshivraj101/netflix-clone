@@ -3,11 +3,16 @@
 
 }
 
-.banner-img{
-  width:100%;
-  mask-image: linear-gradient(to right , transparent , black 75%);
-  -webkit-mask-image: linear-gradient(to right , transparent, black 75%);
+.banner-img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  mask-image: linear-gradient(to right, transparent, black 75%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
+  max-height: 850px;
+object-fit: cover; /* or 'contain' depending on behavior desired */
+
 }
+
 
 
 .hero-caption{
@@ -80,3 +85,14 @@ body{
   background-color: black;
   
 }
+
+
+
+
+@media(max-width:1024px){
+
+  .hero-caption .title-cards{
+    display:none;
+  }
+}
+

@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div className='home'>
       {/* Top Navigation */}
-      <Navbar />
+   
 
       {/* Hero Banner */}
       <div className='hero'>
@@ -41,7 +41,7 @@ const Home = () => {
       </div>
 
       {/* Dynamic Movie Rows */}
-      <TitleCards title="Only on Netflix" category="popular" />
+      <TitleCards title="Only on TrailerPark" category="popular" />
       <TitleCards title="Trending Now" category="upcoming" />
       <TitleCards title="Top Rated Movies" category="top_rated" />
 

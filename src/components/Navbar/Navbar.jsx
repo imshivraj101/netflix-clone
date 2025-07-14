@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Navbar.css';
 
-import logo from '../../assets/logo.png';
+import logo from '../../assets/trailer_park.png';
 import search_icon from '../../assets/search_icon.svg';
 import bell_icon from '../../assets/bell_icon.svg';
 import profile_img from '../../assets/profile_img.png';
+import { logout } from '../../firebase';
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const profileRef = useRef(null);
   const arrowRef = useRef(null);
 
@@ -28,6 +30,7 @@ const Navbar = () => {
   }, []);
 
   const handleArrowClick = () => setDropdownOpen((open) => !open);
+  const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
 
   return (
     <div className="navbar">
@@ -35,7 +38,12 @@ const Navbar = () => {
         <div className="navbar-logo">
           <img src={logo} alt="Logo" />
         </div>
-        <ul className="navbar-list">
+
+        <div className="hamburger" onClick={toggleMobileMenu}>
+          ☰
+        </div>
+
+        <ul className={`navbar-list ${mobileMenuOpen ? 'active' : ''}`}>
           <li className="navbar-item">Home</li>
           <li className="navbar-item">TV Shows</li>
           <li className="navbar-item">Movies</li>
@@ -44,6 +52,7 @@ const Navbar = () => {
           <li className="navbar-item">Browse by Languages</li>
         </ul>
       </div>
+
       <div className="navbar-right">
         <img className="navbar-icon" src={search_icon} alt="Search" />
         <span className="navbar-children">Children</span>
@@ -65,7 +74,7 @@ const Navbar = () => {
           </span>
           {dropdownOpen && (
             <div className="navbar-dropdown">
-              <button className="navbar-dropdown-item">Logout</button>
+              <button onClick={logout} className="navbar-dropdown-item">Logout</button>
             </div>
           )}
         </div>

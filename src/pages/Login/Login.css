@@ -17,9 +17,10 @@
 .login-form {
   background-color: rgba(0, 0, 0, 0.75);
   padding: 60px;
-  max-width: 450px;
+  max-width: 650px;
   width: 100%;
   border-radius: 8px;
+  height:500px;
 }
 
 .login-form h1 {
